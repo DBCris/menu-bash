@@ -296,11 +296,273 @@ read -p "" nav
 esac
 }
 
+gestion3(){
+	echo "================================================================"
+	echo "Has escogido Copiar archivos o directorios completos. Selecciona una opción:"
+	echo "1. Copiar un archivo con otro nombre"
+	echo "2. Copiar archivos a otra carpeta"
+	echo "3. Copiar carpetas completas conservando la estructura"
+	echo "4. Realizar copias con indicación de progreso (opción avanzada)"
+	read -p "5. Volver al menú anterior" gest3
+
+	case "$gest3" in
+	1)
+		read -p "Selecciona el nombre del archivo original (Con la extensión): " viejo
+		read -p "Selecciona el nuevo nombre del archivo (Con la extensión): " nuevo
+		cp "$viejo" "$nuevo"
+	;;
+	2)
+		read -p "Selecciona el nombre del archivo (Con la extensión): " file
+		read -p "Escribe la ruta a la que quieres copiar el archivo (Ejemplo: home/desktop/ejemplo): " folder
+		cp -R "$file" "$folder"
+	;;
+	*)
+		echo "Opción no válida"
+;;
+esac
+}
+gestion2(){
+	echo "================================================================"
+	echo "Has escogido Renombrar archivos o carpetas. Selecciona una opción:"
+	echo "1. Renombrar un archivo"
+	echo "2. Renombrar una carpeta"
+	echo "3. Comprobar que el archivo o carpeta existe"
+	read -p "4. Volver al menú anterior" gest2
+
+	case "$gest2" in
+	1)
+		read -p "Indica el nombre del archivo (con la extensión) " viejo
+		read -p "Indica el nombre nuevo (también con la extensión) " nuevo
+		mv "$viejo" "$nuevo"	
+	;;
+	2)
+		read -p "Indica el nombre del carpeta (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" viejo
+		read -p "Indica el nuevo nombre (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" nuevo
+		mv "$viejo" "$nuevo"
+	;;
+	3)
+		read -p "Indica el nombre de la carpeta/archivo (Si es archivo tiene que ser con la extension.) " file
+		
+			if [ -d "$file" ]
+			then
+   				echo "El directorio ${file} existe"
+			else
+   				echo "El directorio ${file} no existe"
+			fi
+	;;
+	4)
+		gestion
+	;;
+	*)
+		echo "Opción inválida"
+;;	
+esac
+}
+
+gestion1(){
+	echo "================================================================"
+	echo "Has escogido crear archivos. Selecciona una opción:"
+	echo "1. Crear un archivo vacío"
+	echo "2. Añadir texto a un archivo existente"
+	read -p "3. Volver al menú anterior" gest1
+
+	case "$gest1" in
+	1)
+		read -p "Nombra el archivo (con la extensión)" file
+		touch "$file"
+	;;
+	2)
+		read -p "Selecciona el archivo que quieres modificar: "  file
+		if [ -f "$file" ]; then
+   			echo "El archivo "$file" existe. escribe lo que quieras y luego presiona CTRL + C."
+			echo "Si quieres cambiar de línea presiona ENTER."
+			cat > "$file"
+		else
+   			echo "File "$file" does not exist."
+		fi
+	;;
+	3)
+		gestion
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
+
+gestion(){
+	echo "================================================================"
+	echo "Has escogido Gestión y manipulación de archivos. Selecciona una opción:"
+	echo "1. Crear archivos"
+	echo "2. Renombrar archivos o carpetas"
+	echo "3. Copiar archivos o directorios completos"
+	echo "4. Mover archivos o carpetas"
+	echo "5. Eliminar archivos, carpetas vacías o árboles completos"
+	echo "6. Verificar existencia y tipo de archivos o directorios"
+	echo "7. Comparar archivos"
+	echo "8. Buscar y reemplazar texto dentro de archivos"
+	read -p "9. Volver al menú principal " gest
+
+		case "$gest" in
+		1)
+			gestion1
+		;;
+		2)
+			gestion2
+		;;
+		3)
+			gestion3
+		;;
+		4)
+			gestion4
+		;;
+		5)
+			gestion5
+		;;
+		6)
+			gestion6
+		;;
+		7)
+			gestion7
+		;;
+		8)
+			gestion8
+		;;
+		9)
+			menuprincipal
+		;;
+		*)
+			echo "Opción invalida"
+;;
+esac
+}
+
+visualizacion1(){
+echo "================================================================"
+echo "Has escogido Visualizar contenido de un archivo. Selecciona una opción:"
+echo "1. Mostrar contenido completo"
+echo "2. Mostrar primeras n líneas"
+read -p "3. Volver atrás " vis1
+
+	case "$vis1" in
+		1)
+			read -p "Escribe la ruta del archivo que quieres mostrar: " file
+			cat "$file" 
+		;;
+		2)
+			read -p "Escribe la ruta del archivo que quieres mostrar: " file
+			read -p "¿Cuántas líneas quieres ver del archivo?" num
+			head -n "$num" "$file"
+		;;
+		3)
+			visualizacion
+		;;
+		*)
+			echo "Opción invalida"
+;;
+esac
+}
+visualizacion2(){
+echo "================================================================"
+echo "Has escogido Estadísticas y conteo. Selecciona una opción:"
+echo "1. Contar líneas"
+echo "2. Contar palabras"
+echo "3. Contar caracteres"
+read -p "4. Volver atrás " vis2
+
+	case "$vis2" in
+		1)
+		read -p "Escribe la ruta del archivo del que quieres contar las líneas " count
+		wc -l "$count"
+		;;
+		2)
+		read -p "Escribe la ruta del archivo del que quieres contar las palabras " count
+		wc -w "$count"
+		;;
+		3)
+		read -p "Escribe la ruta del archivo del que quieres contar los caracteres " count
+		wc -m "$count"
+		;;
+		4)
+		visualizacion
+		;;
+		*)
+		echo "Opción inválida"
+;;
+esac
+}
+visualizacion3(){
+	echo "================================================================"
+	echo "Has escogido ordenar información. Selecciona una opción:"
+	echo "1. Ordenar alfabéticamente"
+	echo "2. Eliminar duplicados"
+	echo "3. Contar duplicados"
+	read -p "4. Volver atrás" vis3
+
+	case "$vis3" in
+	1)
+		read -p "Escribe la ruta del archivo el cual quieras ordenas alfabéticamente " sort
+		sort "$sort"
+	;;
+	2)
+		read -p "Escribe la ruta del archivo el cual quieras eliminar duplicados" del
+		sort "$del" | uniq > resultado.txt
+		echo "Se a creado un nuevo archivo llamado "resultado.txt" con el resultado esperado"
+	;;
+	3)
+		read -p "Escribe la ruta del archivo donde quieras contar duplicados" count
+		comando=$(sort "$count" | uniq -d | wc -l)
+		echo "Hay un total de $comando duplicados"
+		sort "$count" | uniq -d
+	;;
+	4)
+	visualizacion
+	;;
+	*)
+	echo "Opción inválida"
+;;
+esac	
+}
+visualizacion(){
+	echo "================================================================"
+	echo "Has escogido Visualización y manipulación de archivos. Selecciona una opción:"
+	echo "1. Visualizar contenido de un archivo."
+	echo "2. Estadísticas y conteo."
+	echo "3. Ordenar información."
+	echo "4. Extraer o filtrar datos."
+	echo "5. Transformar texto."
+	read -p "6. Volver al menú principal." vis
+
+	case "$vis" in
+
+	1)
+	visualizacion1
+	;;
+	2)
+	visualizacion2
+	;;
+	3)
+	visualizacion3
+	;;
+	4)
+	visualizacion4
+	;;
+	5)
+	visualizacion5
+	;;
+	6)
+	menuprincipal
+	;;
+	*)
+	echo "Opción inválida"
+;;
+esac
+}
 menuprincipal(){
 echo "================================================================"
 echo "Escoge una opción"
 echo "1. Navegación por el sistema de archivos"
-echo "2. Gestión y manipulación de archivos 3."
+echo "2. Gestión y manipulación de archivos"
 echo "3. Visualización y procesamiento de datos"
 echo "4. Usuarios, grupos y permisos"
 echo "5. Procesos y control del sistema"
@@ -309,16 +571,16 @@ echo "7. Opciones avanzadas"
 echo "8. Herramientas del alumno"
 read -p "9. Salir " op
 
-	case "$op" in #Opción de navegación
+	case "$op" in
 	1)
 		navegacion
-		#Fin de opción de navegación
+	
 	;;
 	2)
-		echo "Has elegido la opción 2"
+		gestion
 	;;
 	3)
-		echo "Has elegido la opción 3"
+		visualizacion
 	;;
 	4)
 		echo "Has elegido la opción 4"
