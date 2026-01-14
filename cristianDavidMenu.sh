@@ -374,11 +374,11 @@ gestion1(){
 	2)
 		read -p "Selecciona el archivo que quieres modificar: "  file
 		if [ -f "$file" ]; then
-   			echo "El archivo "$file" existe. escribe lo que quieras y luego presiona CTRL + C."
+   			echo "El archivo "$file" existe. Escribe lo que quieras y luego presiona CTRL + C."
 			echo "Si quieres cambiar de línea presiona ENTER."
 			cat > "$file"
 		else
-   			echo "File "$file" does not exist."
+   			echo "El archivo "$file" no existe."
 		fi
 	;;
 	3)
@@ -521,7 +521,74 @@ visualizacion3(){
 	*)
 	echo "Opción inválida"
 ;;
-esac	
+esac
+}
+##PENDIENTE DE HACER VISUALIZACION4
+visualizacion4(){
+	echo "================================================================"
+	echo "Has escogido Extraer o filtrar datos. Selecciona una opción:"
+	echo "1. Extraer columnas específicas"
+	echo "2. Filtrar líneas por texto"
+	read -p "3. Volver atrás" vis4
+
+	case "$vis4" in
+
+	1)
+		
+	;;
+	2)
+
+	;;
+	3)
+		visualizacion
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
+
+visualizacion5(){
+	echo "================================================================"
+	echo "Ha escogido Transformar texto. Selecciona una opción:"
+	echo "1. Convertir mayúsculas/minúsculas"
+	echo "2. Eliminar caracteres"
+	echo "3. Sustituir patrones"
+	read -p "4. Volver atrás " vis4
+
+	case "$vis4" in
+
+	1)
+		read -p "Escribe la ruta del archivo que quieras convertir su texto de mayúsculas a minúsculas o viceversa: " file
+		read -p "¿De minúscula a mayúscula (1) o de mayúscula a minúscula (2)" opt
+		if [ "$opt" -eq 1 ]; then
+			tr '[:lower:]' '[:upper:]' < "$file" > nuevoArchivo.txt
+			echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
+		elif [ "$opt" -eq 2 ]; then
+			tr '[:upper:]' '[:lower:]' < "$file" > nuevoArchivo.txt
+			echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
+		fi
+	;;
+	2)
+		read -p "Escribe la ruta del archivo del cual quieras eliminar caracteres" file
+		read -p "Escribe el o los caracteres que quieras eliminar" del
+		tr -d "$del" < "$file" > nuevoArchivo.txt
+		echo "Se a debido crear un nuevo archivo en el mismo directorio con los cambios hechos"
+	;;
+	3)
+		read -p "Escribe la ruta del archivo " file
+		read -p "Escribe el patrón a sustituir" pattern
+		read -p "Escribe por cual texto se reemplazara" replace
+		sed -i "s/"$pattern"/"$replace"/g" "$file"
+		echo "Cambios realizados correctamente"
+	;;
+	4)
+		visualizacion
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
 }
 visualizacion(){
 	echo "================================================================"
@@ -558,6 +625,11 @@ visualizacion(){
 ;;
 esac
 }
+##PENDIENTE DE HACER
+usuarios(){
+echo "================================================================"
+
+}
 menuprincipal(){
 echo "================================================================"
 echo "Escoge una opción"
@@ -567,14 +639,11 @@ echo "3. Visualización y procesamiento de datos"
 echo "4. Usuarios, grupos y permisos"
 echo "5. Procesos y control del sistema"
 echo "6. Red, conectividad y diagnóstico"
-echo "7. Opciones avanzadas"
-echo "8. Herramientas del alumno"
-read -p "9. Salir " op
+read -p "7. Salir" op
 
 	case "$op" in
 	1)
 		navegacion
-	
 	;;
 	2)
 		gestion
@@ -583,7 +652,7 @@ read -p "9. Salir " op
 		visualizacion
 	;;
 	4)
-		echo "Has elegido la opción 4"
+		usuarios
 	;;
 	5)
 		echo "Has elegido la opción 5"
@@ -592,12 +661,6 @@ read -p "9. Salir " op
 		echo "Has elegido la opción 6"
 	;;
 	7)
-		echo "Has elegido la opción 7"
-	;;
-	8)
-		echo "Has elegido la opción 8"
-	;;
-	9)
 		echo "Saliendo del menú..."
 	;;
 	*)
