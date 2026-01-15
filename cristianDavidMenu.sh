@@ -523,21 +523,26 @@ visualizacion3(){
 ;;
 esac
 }
-##PENDIENTE DE HACER VISUALIZACION4
+
 visualizacion4(){
 	echo "================================================================"
 	echo "Has escogido Extraer o filtrar datos. Selecciona una opción:"
 	echo "1. Extraer columnas específicas"
 	echo "2. Filtrar líneas por texto"
-	read -p "3. Volver atrás" vis4
+	read -p "3. Volver atrás " vis4
 
 	case "$vis4" in
 
 	1)
-		
+		read -p "Escribe la ruta donde extraeremos los datos" file
+		read -p "Escriba el número de la columna a extraer " column
+		echo "La columna que ha extraído: " 
+		cut -d ' ' -f "$column" "$file"
 	;;
 	2)
-
+		read -p "Escribe la ruta donde filtraremos líneas por texto" file
+		read -p "Escribe el texto a filtrar" text
+		grep "$text" "$file"
 	;;
 	3)
 		visualizacion
@@ -590,6 +595,7 @@ visualizacion5(){
 ;;
 esac
 }
+
 visualizacion(){
 	echo "================================================================"
 	echo "Has escogido Visualización y manipulación de archivos. Selecciona una opción:"
@@ -625,11 +631,85 @@ visualizacion(){
 ;;
 esac
 }
-##PENDIENTE DE HACER
+
+usuarios1(){
+	echo "================================================================"
+	echo "Has seleccionado Información del usuario. Seleccione una de estas opciónes:"
+	echo "1. Ver usuario actual"
+	echo "2. Ver grupos asociados"
+	read -p "3. Volver atrás" usr1
+
+	case "$usr1" in
+		1)
+			whoami
+		;;
+		2)
+			groups
+		;;
+		3)
+			usuarios
+		;;
+		*)
+		echo "Opción inválida"
+;;
+esac
+}
+##PENDIENTE DE TERMINAR usuarios2
+usuarios2(){
+	echo "================================================================"
+	echo "Has seleccionado Permisos de archivos. Seleccione una de estas opciónes:"
+	echo "1. Mostrar permisos actuales"
+	echo "2. Cambiar permisos"
+	read -p "Volver atrás " usr2
+
+	case "$usr2" in
+	1)
+
+	;;
+	2)
+
+	;;
+	3)
+	usuarios
+	;;
+	*)
+	echo "Opción inválida"
+;;
+esac
+}
+
 usuarios(){
 echo "================================================================"
+echo "Has seleccionado Usuarios, grupos y permisos. Seleccione una de estas opciónes:"
+echo "1. Información del usuario"
+echo "2. Permisos de archivos"
+echo "3. Propietarios y grupos"
+echo "4. Gestión básica de cuentas"
+read -p "5. Volver al menú principal" usr
 
+case "$usr" in
+	1)
+		usuarios1
+	;;
+	2)
+		usuarios2
+	;;
+	3)
+		usuarios3
+	;;
+	4)
+		usuarios4
+	;;
+	5)
+		menuprincipal
+	;;
+	*)
+	echo "Opción inválida"
+
+;;
+esac
 }
+
 menuprincipal(){
 echo "================================================================"
 echo "Escoge una opción"
