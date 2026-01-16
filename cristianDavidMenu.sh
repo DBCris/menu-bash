@@ -634,7 +634,7 @@ esac
 
 usuarios1(){
 	echo "================================================================"
-	echo "Has seleccionado Información del usuario. Seleccione una de estas opciónes:"
+	echo "Has seleccionado Información del usuario. Selecciona una de estas opciónes:"
 	echo "1. Ver usuario actual"
 	echo "2. Ver grupos asociados"
 	read -p "3. Volver atrás" usr1
@@ -654,19 +654,29 @@ usuarios1(){
 ;;
 esac
 }
-##PENDIENTE DE TERMINAR usuarios2
+
 usuarios2(){
 	echo "================================================================"
-	echo "Has seleccionado Permisos de archivos. Seleccione una de estas opciónes:"
+	echo "Has seleccionado Permisos de archivos. Selecciona una de estas opciónes:"
 	echo "1. Mostrar permisos actuales"
 	echo "2. Cambiar permisos"
-	read -p "Volver atrás " usr2
+	read -p "3. Volver atrás " usr2
 
 	case "$usr2" in
 	1)
-
+		read -p "Indique la ruta del archivo que quiera comprobar" file
+		ls -l "$file"
 	;;
 	2)
+		read -p "Indique la ruta del archivo que quiera cambiar los permisos" file
+		read -p "Indique los permisos que le quiere agregar a ese archivo (Por ejemplo: 777 para dar permisos de rwx a todos los usuarios, 755 para dar permisos de rwx al propietario y solo r x a los demas, etc...)" perm
+		
+		if [ -f "$file" ]; then
+			chmod -v "$perm" "$file"
+			echo "Los cambios han sido realizados y se a generado un mensaje de diagnóstico"
+		else
+			echo "El archivo no existe y se va a cancelar este proceso"
+		fi
 
 	;;
 	3)
@@ -678,36 +688,106 @@ usuarios2(){
 esac
 }
 
-usuarios(){
-echo "================================================================"
-echo "Has seleccionado Usuarios, grupos y permisos. Seleccione una de estas opciónes:"
-echo "1. Información del usuario"
-echo "2. Permisos de archivos"
-echo "3. Propietarios y grupos"
-echo "4. Gestión básica de cuentas"
-read -p "5. Volver al menú principal" usr
+usuarios3(){
+	echo "================================================================"
+	echo "Has seleccionado Propietarios y grupos. Selecciona una de estas opciónes:"
+	echo "1. Ver propietario actual"
+	echo "2. Cambiar propietario"
+	echo "3. Cambiar grupo"
+	read -p "4. Volver atrás " usr3
 
-case "$usr" in
+	case "$usr3" in
+		1)
+			read -p "Indica la ruta del archivo que quiera comprobar su propietario" file
+			ls -l "$file"
+		;;
+		2)
+			read -p "Indique la ruta del archivo que quiera cambiar de propietario" file
+			read -p "Indique el usuario que será propietario del archivo" usr
+			if [ -f "$file" && id "$usr" ]; then
+			chown "$usr" "$file"
+			echo "Los cambios han sido realizados"
+			else
+			echo "No se ha podido encontrar el archivo o el usuario, por favor revisa los carácteres e inténtelo de nuevo."
+			fi
+		;;
+		3)
+			read -p "Indique el usuario que quiera cambiar de grupo" usr
+			read -p "Indique el grupo al que quiere meter ese usuario" group
+			adduser "$usr" "$group"
+			echo "El usuario "$usr" ha sido movido al grupo "$group" con éxito"
+		;;
+
+		4)
+		usuarios
+		;;
+		*)
+		echo "Opción inválida"
+;;
+esac
+}
+
+usuarios4(){
+	echo "================================================================"
+	echo "Has seleccionado Gestión básica de cuentas. Selecciona una opción:"
+	echo "1. Crear usuario"
+	echo "2. Crear grupo"
+	echo "3. Añadir usuario a un grupo"
+	read -p "4. Volver atrás" usr4
+
+	case "$usr4" in
+
 	1)
-		usuarios1
+	
 	;;
+
 	2)
-		usuarios2
+
 	;;
+
 	3)
-		usuarios3
+
 	;;
+
 	4)
-		usuarios4
-	;;
-	5)
-		menuprincipal
+	usuarios
 	;;
 	*)
 	echo "Opción inválida"
-
 ;;
-esac
+esac	
+}
+
+usuarios(){
+	echo "================================================================"
+	echo "Has seleccionado Usuarios, grupos y permisos. Selecciona una de estas opciónes:"
+	echo "1. Información del usuario"
+	echo "2. Permisos de archivos"
+	echo "3. Propietarios y grupos"
+	echo "4. Gestión básica de cuentas"
+	read -p "5. Volver al menú principal " usr
+
+	case "$usr" in
+		1)
+			usuarios1
+		;;
+		2)
+			usuarios2
+		;;
+		3)
+			usuarios3
+		;;
+		4)
+			usuarios4
+		;;
+		5)
+			menuprincipal
+		;;
+		*)
+		echo "Opción inválida"
+
+	;;
+	esac
 }
 
 menuprincipal(){
