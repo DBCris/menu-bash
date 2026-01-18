@@ -108,6 +108,7 @@ read -p "" nav4
 case "$nav4" in
         1)
                 read -p "Has seleccionado búsqueda exacta por nombre, di el nombre del archivo/directorio: " name
+				find . -name "$name"
         ;;
         2)
                 tree -d
@@ -179,7 +180,14 @@ read -p "" nav6
 	;;
 	4)
 		read -p "Indique el nombre de la carpeta con contenido que desee eliminar (CUIDADO CON ESTA OPCIÓN)" delfolder
+		read -p "¿ESTÁS SEGURO? (Y/N)" confirmation
+		if [ "$confirmation" == "Y" ]; then 
 		rm -r "$delfolder"
+		elif [ "$confirmation" == "N" ]; then
+		echo "Cancelando proceso... "
+		else
+		echo "Opción inválida, cancelando proceso... "
+		fi
 	;;
 	5)
 		navegacion
@@ -201,10 +209,20 @@ read -p "" nav7
 case "$nav7" in
 
 	1)
-		history
+		cat ~/.bash_history
+
 	;;
 	2)
-		history -cw
+		read -p "¿ESTÁS SEGURO? (Y/N)" confirmation
+		if [ "$confirmation" == "Y" ]; then 
+			> ~/.bash_history
+			echo "Historial borrado correctamente"
+
+		elif [ "$confirmation" == "N" ]; then
+			echo "Cancelando proceso... "
+		else
+			echo "Opción inválida, cancelando proceso... "
+		fi
 	;;
 	3)
 		navegacion
@@ -507,7 +525,7 @@ visualizacion3(){
 	2)
 		read -p "Escribe la ruta del archivo el cual quieras eliminar duplicados" del
 		sort "$del" | uniq > resultado.txt
-		echo "Se a creado un nuevo archivo llamado "resultado.txt" con el resultado esperado"
+		echo Se ha creado un nuevo archivo llamado "resultado.txt con el resultado esperado"
 	;;
 	3)
 		read -p "Escribe la ruta del archivo donde quieras contar duplicados" count
