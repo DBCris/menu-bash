@@ -808,6 +808,103 @@ usuarios(){
 	esac
 }
 
+
+procesos2(){
+	clear
+	echo "================================================================"
+	echo "Has seleccionado Gestionar procesos. Selecciona una opción"
+	echo "1. Finalizar procesos por ID"
+	echo "2. Finalizar procesos por nombre"
+	read -p "3. Volver atrás" proc2
+
+	case "$proc2" in
+
+	1)
+		clear
+		read -p "Escribe el ID del proceso que quieras finaliza" fin
+		kill "$fin"
+		echo "El proceso debería haberse finalizado"
+	;;
+	2)
+		clear
+		read -p "Escribe el nombre del proceso que quieras finalizar" fin
+		killall "$fin"
+		echo "El proceso debería haberse finalizado"
+	;;
+	3)
+		clear
+		procesos
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
+
+procesos1(){
+	echo "================================================================"
+	echo "Has seleccionado Consultar procesos. Selecciona una opción"
+	echo "1. Ver procesos propios"
+	echo "2. Ver todos los procesos del sistema"
+	echo "3. Buscar procesos por nombre"
+	read -p "4. Volver atrás" proc1
+
+	case "$proc1" in
+
+	1)
+		clear
+		ps -u "$USER"
+	;;
+	2)
+		clear
+		ps aux
+	;;
+	3)
+		clear
+		read -p "Escribe el nombre del proceso" name
+		clear
+		ps aux | grep "$name"
+	;;
+	4)
+		procesos
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
+procesos(){
+	echo "================================================================"
+	echo "Has seleccionado Procesos y control del sistema. Selecciona una opción"
+	echo "1. Consultar procesos"
+	echo "2. Gestionar procesos"
+	echo "3. Monitorización del sistema"
+	echo "4. Servicios del sistema"
+	read -p "5. Volver al menú principal" proc
+
+	case "$proc" in
+
+	1)
+		procesos1
+	;;
+	2)
+		procesos2
+	;;
+	3)
+		procesos3
+	;;
+	4)
+		procesos4
+	;;
+	5)
+		menuprincipal
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
+
 menuprincipal(){
 echo "================================================================"
 echo "Escoge una opción"
@@ -833,7 +930,7 @@ read -p "7. Salir" op
 		usuarios
 	;;
 	5)
-		echo "Has elegido la opción 5"
+		procesos
 	;;
 	6)
 		echo "Has elegido la opción 6"
