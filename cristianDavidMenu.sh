@@ -807,7 +807,75 @@ usuarios(){
 	;;
 	esac
 }
+##PENDIENTE
+procesos4(){
+	echo "================================================================"
+	echo "Has seleccionado Servicios del sistema. Selecciona una opción"
+	echo "1. Ver estado de un servicio"
+	echo "2. Iniciar servicio"
+	echo "3. Detener servicio"
+	echo "4. Reiniciar servicio"
+	read -p "5. Volver atrás" proc4
 
+	case "$proc4" in
+
+	1)
+		clear
+		read -p "Escribe el nombre del servicio" servicio
+		clear
+		systemctl status "$servicio"
+	;;
+	2)
+		clear
+		read -p "Escribe el nombre del servicio para iniciar" servicio
+		systemctl start "$servicio"
+	;;
+	3)
+		clear
+		read -p "Escribe el nombre del servicio para detener" servicio
+		systemctl stop "$servicio"
+	;;
+	4)
+
+	;;
+
+	5)
+	procesos
+	;;
+	*)
+	echo "Opción inválida"
+;;
+esac
+}
+procesos3(){
+	echo "================================================================"
+	echo "Has seleccionado Monitorización del sistema. Selecciona una opción"
+	echo "1. Ver uso de CPU"
+	echo "2. Ver uso de memoria"
+	echo "3. Ver estadísticas del sistema"
+	read -p "4. Volver atrás " proc3
+
+	case "$proc3" in
+
+	1)
+		clear
+		top
+	;;
+	2)
+		clear
+		free -h
+	;;
+	3)
+		vmstat
+	;;
+	4)
+		procesos
+	;;
+	*)
+		echo "Opción inválida"
+;;
+esac
+}
 
 procesos2(){
 	clear
