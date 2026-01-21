@@ -1,71 +1,73 @@
 #!/bin/bash
 navegacion11(){
-echo "================================================================"
-echo "Has elegido mostrar información del directorio actual. Selecciona una de estas opciónes: "
-echo "1. Ver ruta actual"
-echo "2. Listar contenido básico"
-echo "3. Listado detallado"
-echo "4. Mostrar archivos ocultos"
-echo "5. Ver tamaño total del directorio"
-echo "6. Ver información detallada del directorio"
-echo "7. Volver atras"
-read -p "" nav1
-case "$nav1" in
-	1)
-		pwd
-	;;
-	2)
-		ls
-	;;
-	3)
-		ls -l
-	;;
-	4)
-		ls -a
-	;;
-	5)
-		du -sh
-	;;
-	6)
-		ls -lh
-	;;
-	7)
-		navegacion
-	;;
-	*)
-	 	echo "Opción  inválida"
-;;
-esac
+
+	echo "================================================================"
+	echo "Has elegido mostrar información del directorio actual. Selecciona una de estas opciónes: "
+	echo "1. Ver ruta actual"
+	echo "2. Listar contenido básico"
+	echo "3. Listado detallado"
+	echo "4. Mostrar archivos ocultos"
+	echo "5. Ver tamaño total del directorio"
+	echo "6. Ver información detallada del directorio"
+	echo "7. Volver atras"
+	read -p "" nav1
+
+	case "$nav1" in
+		1)
+			pwd
+		;;
+		2)
+			ls
+		;;
+		3)
+			ls -l
+		;;
+		4)
+			ls -a
+		;;
+		5)
+			du -sh
+		;;
+		6)
+			ls -lh
+		;;
+		7)
+			navegacion
+		;;
+		*)
+	 		echo "Opción  inválida"
+		;;
+	esac
 }
 
 navegacion12(){
-echo "================================================================"
-echo "Has elegido cambiar de directorio, selecciona una de las opciones: "
-echo "1. Ir a una ruta concreta"
-echo "2. Comprobar si una ruta existe"
-echo "3. Volver atrás"
-read -p "" nav2
+	echo "================================================================"
+	echo "Has elegido cambiar de directorio, selecciona una de las opciones: "
+	echo "1. Ir a una ruta concreta"
+	echo "2. Comprobar si una ruta existe"
+	echo "3. Volver atrás"
+	read -p "" nav2
 
-case "$nav2" in
-	1)
-        read -p "Has elegido ir a una ruta concreta, escriba la ruta a la que quieras" ruta
-        cd "$ruta"
-	;;
-	2)
-        read -p "Has elegido comprobar si una ruta existe, escriba la ruta que  quiera comprobar: " existe
-        if [[ -d "$existe" ]];then
-            echo "La ruta $existe existe"
-        else
-            echo "La ruta $existe no existe"
-        fi
-	;;
-	3)
-		navegacion
-	;;
-	*)
-		echo  "Opción inválida"
-;;
-esac
+	case "$nav2" in
+		1)
+        	read -p "Has elegido ir a una ruta concreta, escriba la ruta a la que quieras" ruta
+        	cd "$ruta"
+		;;
+		2)
+        	read -p "Has elegido comprobar si una ruta existe, escriba la ruta que  quiera comprobar: " existe
+        	if [[ -d "$existe" ]];then
+            	echo "La ruta $existe existe"
+        	else
+            	echo "La ruta $existe no existe"
+        	fi
+		;;
+		3)
+			navegacion
+		;;
+		*)
+			echo  "Opción inválida"
+		;;
+	esac
 }
 
 navegacion13(){
@@ -77,35 +79,36 @@ navegacion13(){
 	echo "4. Volver atrás"
 	read -p "" nav3
 	case "$nav3" in
-	1)
-		tree
-	;;
-	2)
-		tree -d
-	;;
-	3)
-		read -p "Introduce la profundiad deseada " depth
-		tree -L "$depth"
-	;;
-	4)
-		navegacion
-	;;
-	*)
-		echo "Opción no válida."
-	;;
-esac
+		1)
+			tree
+		;;
+		2)
+			tree -d
+		;;
+		3)
+			read -p "Introduce la profundiad deseada " depth
+			tree -L "$depth"
+		;;
+		4)
+			navegacion
+		;;
+		*)
+			echo "Opción no válida."
+		;;
+	esac
 }
 
 navegacion14(){
-echo "================================================================"
-echo "Has seleccionado buscar archivos y directorios. Selecciona una opción:"
-echo "1. Búsqueda exacta por nombre"
-echo "2. Búsqueda por coincidencias parciales"
-echo "3. Buscar por tamaño"
-echo "4. Buscar por fecha de modificación"
-echo "5. Volver atrás"
-read -p "" nav4
-case "$nav4" in
+	echo "================================================================"
+	echo "Has seleccionado buscar archivos y directorios. Selecciona una opción:"
+	echo "1. Búsqueda exacta por nombre"
+	echo "2. Búsqueda por coincidencias parciales"
+	echo "3. Buscar por tamaño"
+	echo "4. Buscar por fecha de modificación"
+	echo "5. Volver atrás"
+	read -p "" nav4
+
+	case "$nav4" in
         1)
             read -p "Has seleccionado búsqueda exacta por nombre, di el nombre del archivo/directorio: " name
 			find . -name "$name"
@@ -126,44 +129,44 @@ case "$nav4" in
 		;;
         *)
             echo "Opción no válida."
-;;
-esac
+		;;
+	esac
 }
 
 navegacion15(){
-echo "================================================================"
-echo "Has seleccionado Calcular tamaños de carpetas. Selecciona una opción"
-echo "1. Consultar tamaño de una ruta específica"
-echo "2. Ordenar carpetas por tamaño"
-echo "3. Volver atrás"
-read -p nav5
+	echo "================================================================"
+	echo "Has seleccionado Calcular tamaños de carpetas. Selecciona una opción"
+	echo "1. Consultar tamaño de una ruta específica"
+	echo "2. Ordenar carpetas por tamaño"
+	echo "3. Volver atrás"
+	read -p nav5
 
-case "$nav5" in
-	1)
-		read -p "Indique la ruta: " ruta
-		du -sh "$ruta"
-	;;
-	2)
-		du --max-depth=1 /home/ | sort -n -r
-	;;
-	3)
-		navegacion
-	;;
-	*)
-		echo "Opción inválida"
-;;
-esac
+	case "$nav5" in
+		1)
+			read -p "Indique la ruta: " ruta
+			du -sh "$ruta"
+		;;
+		2)
+			du --max-depth=1 /home/ | sort -n -r
+		;;
+		3)
+			navegacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
+	esac
 }
 
 navegacion16(){
-echo "================================================================"
-echo "Has seleccionado Crear / renombrar / eliminar elementos. Selecciona una opción"
-echo "1. Crear archivo vacío"
-echo "2. Renombrar archivo o carpeta"
-echo "3. Eliminar archivo"
-echo "4. Eliminar carpeta con contenido."
-echo "5. Volver atras "
-read -p "" nav6
+	echo "================================================================"
+	echo "Has seleccionado Crear / renombrar / eliminar elementos. Selecciona una opción"
+	echo "1. Crear archivo vacío"
+	echo "2. Renombrar archivo o carpeta"
+	echo "3. Eliminar archivo"
+	echo "4. Eliminar carpeta con contenido."
+	echo "5. Volver atras "
+	read -p "" nav6
 
 	case "$nav6" in
 		1)	
@@ -195,123 +198,123 @@ read -p "" nav6
 		;;
 		*)
 			echo "Opción inválida"
-;;
-esac
+		;;
+	esac	
 }
 
 navegacion17(){
-echo "================================================================"
-echo "Has seleccionado Historial de rutas visitadas. Selecciona una opción"
-echo "1. Mostrar historial"
-echo "2. Borrar historial"
-echo "3. Volver atrás "
-read -p "" nav7
+	echo "================================================================"
+	echo "Has seleccionado Historial de rutas visitadas. Selecciona una opción"
+	echo "1. Mostrar historial"
+	echo "2. Borrar historial"
+	echo "3. Volver atrás "
+	read -p "" nav7
 
-case "$nav7" in
+	case "$nav7" in
 
-	1)
-		cat ~/.bash_history
-
-	;;
-	2)
-		read -p "¿ESTÁS SEGURO? (Y/N)" confirmation
-		if [ "$confirmation" == "Y" ]; then 
-			> ~/.bash_history
-			echo "Historial borrado correctamente"
-		elif [ "$confirmation" == "N" ]; then
-			echo "Cancelando proceso... "
-		else
-			echo "Opción inválida, cancelando proceso... "
-		fi
-	;;
-	3)
-		navegacion
-	;;
-	*)
-		echo "Opción inválida"
-;;
-esac
+		1)
+			cat ~/.bash_history
+		;;
+		2)
+			read -p "¿ESTÁS SEGURO? (Y/N)" confirmation
+			if [ "$confirmation" == "Y" ]; then 
+				> ~/.bash_history
+				echo "Historial borrado correctamente"
+			elif [ "$confirmation" == "N" ]; then
+				echo "Cancelando proceso... "
+			else
+				echo "Opción inválida, cancelando proceso... "
+			fi
+		;;
+		3)
+			navegacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
+	esac
 }
 
 navegacion18(){
-echo "================================================================"
-echo "Has seleccionado Listar contenido con filtros avanzados. Selecciona una opción"
-echo "1. Listar por tamaño"
-echo "2. Listar por fecha"
-echo "3. Filtrar por texto"
-echo "4. Ver solo archivos"
-echo "5. Volver atrás "
-read -p "" nav8
+	echo "================================================================"
+	echo "Has seleccionado Listar contenido con filtros avanzados. Selecciona una opción"
+	echo "1. Listar por tamaño"
+	echo "2. Listar por fecha"
+	echo "3. Filtrar por texto"
+	echo "4. Ver solo archivos"
+	echo "5. Volver atrás "
+	read -p "" nav8
 
-case "$nav8" in
+	case "$nav8" in
 
-	1)
-		ls -lhS
-	;;
-	2)
-		ls -t
-	;;
-	3)
-		read -p "¿Qué texto quieres buscar?" texto
-		grep -rli "$texto" .
-	;;
-	4)
-		find . -maxdepth 1 -type f
-	;;
-	5)
-		navegacion
-	;;
-	*)
-		echo "Opción inválida"
-;;
-esac
+		1)
+			ls -lhS
+		;;
+		2)
+			ls -t
+		;;
+		3)
+			read -p "¿Qué texto quieres buscar?" texto
+			grep -rli "$texto" .
+		;;
+		4)
+			find . -maxdepth 1 -type f
+		;;
+		5)
+			navegacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
+	esac
 }
 
 navegacion(){
-echo "================================================================"
-echo "Has seleccionado navegación por el sistema de archivos. Selecciona una opción: "
-echo "1. Mostrar información del directorio actual"
-echo "2. Cambiar de directorio"
-echo "3. Navegación guiada en árbol"
-echo "4. Buscar archivos o directorios"
-echo "5. Calcular tamaños de carpetas"
-echo "6. Crear / renombrar / eliminar elementos"
-echo "7. Historial de rutas visitadas"
-echo "8. Listar contenido con filtros avanzados"
-echo "9. Volver al menu principal "
-read -p "" nav
+	echo "================================================================"
+	echo "Has seleccionado navegación por el sistema de archivos. Selecciona una opción: "
+	echo "1. Mostrar información del directorio actual"
+	echo "2. Cambiar de directorio"
+	echo "3. Navegación guiada en árbol"
+	echo "4. Buscar archivos o directorios"
+	echo "5. Calcular tamaños de carpetas"
+	echo "6. Crear / renombrar / eliminar elementos"
+	echo "7. Historial de rutas visitadas"
+	echo "8. Listar contenido con filtros avanzados"
+	echo "9. Volver al menu principal "
+	read -p "" nav
+
 	case "$nav" in
-	1)
-		navegacion11
-	;;
-	2)
-		navegacion12
-	;;
-	3)
-		navegacion13
-	;;
-	4)
-		navegacion14
-	;;
-	5)
-		navegacion15
-	;;
-	6)
-		navegacion16
-	;;
-	7)
-		navegacion17
-	;;
-	8)
-		navegacion18
-	;;
-	9)
-		menuprincipal
-	;;
-	*)
-	 	echo "Opción inválida"
-;;
-esac
+		1)
+			navegacion11
+		;;
+		2)
+			navegacion12
+		;;
+		3)
+			navegacion13
+		;;
+		4)
+			navegacion14
+		;;
+		5)
+			navegacion15
+		;;
+		6)
+			navegacion16
+		;;
+		7)
+			navegacion17
+		;;
+		8)
+			navegacion18
+		;;
+		9)
+			menuprincipal
+		;;
+		*)
+	 		echo "Opción inválida"
+		;;
+	esac
 }
 
 gestion3(){
@@ -324,34 +327,33 @@ gestion3(){
 	read -p "5. Volver al menú anterior" gest3
 
 	case "$gest3" in
-
-	1)
-		read -p "Selecciona el nombre del archivo original (Con la extensión): " viejo
-		read -p "Selecciona el nuevo nombre del archivo (Con la extensión): " nuevo
-		cp "$viejo" "$nuevo"
-	;;
-	2)
-		read -p "Selecciona el nombre del archivo (Con la extensión): " file
-		read -p "Escribe la ruta a la que quieres copiar el archivo (Ejemplo: home/desktop/ejemplo): " folder
-		cp -R "$file" "$folder"
-	;;
-	3)
-		read -p "Selecciona el nombre de la carpeta a copiar" copia
-		cp -r "$copia" nuevaCarpeta
-		echo "Se debería haber copiado la carpeta correspondiente con el nombre de nuevaCarpeta"
-	;;
-	4)
-		read -p "Escribe lo que quieras copiar con indicación de progreso" copia
-		read -p "Escribe donde quieres que se ubique el nuevo objeto" destino
-		rsync -av --progress "$copia/" "$destino"
-	;;
-	5)
-		gestion
-	;;
-	*)
-		echo "Opción no válida"
-;;
-esac
+		1)
+			read -p "Selecciona el nombre del archivo original (Con la extensión): " viejo
+			read -p "Selecciona el nuevo nombre del archivo (Con la extensión): " nuevo
+			cp "$viejo" "$nuevo"
+		;;
+		2)
+			read -p "Selecciona el nombre del archivo (Con la extensión): " file
+			read -p "Escribe la ruta a la que quieres copiar el archivo (Ejemplo: home/desktop/ejemplo): " folder
+			cp -R "$file" "$folder"
+		;;
+		3)
+			read -p "Selecciona el nombre de la carpeta a copiar" copia
+			cp -r "$copia" nuevaCarpeta
+			echo "Se debería haber copiado la carpeta correspondiente con el nombre de nuevaCarpeta"
+		;;
+		4)
+			read -p "Escribe lo que quieras copiar con indicación de progreso" copia
+			read -p "Escribe donde quieres que se ubique el nuevo objeto" destino
+			rsync -av --progress "$copia/" "$destino"
+		;;
+		5)
+			gestion
+		;;
+		*)
+			echo "Opción no válida"
+		;;
+	esac
 }
 gestion2(){
 	echo "================================================================"
@@ -362,31 +364,31 @@ gestion2(){
 	read -p "4. Volver al menú anterior" gest2
 
 	case "$gest2" in
-	1)
-		read -p "Indica el nombre del archivo (con la extensión) " viejo
-		read -p "Indica el nombre nuevo (también con la extensión) " nuevo
-		mv "$viejo" "$nuevo"	
-	;;
-	2)
-		read -p "Indica el nombre del carpeta (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" viejo
-		read -p "Indica el nuevo nombre (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" nuevo
-		mv "$viejo" "$nuevo"
-	;;
-	3)
-		read -p "Indica el nombre de la carpeta/archivo (Si es archivo tiene que ser con la extension.) " file
-		
-		if [ -e "$file" ]; then
-   			echo "El directorio ${file} existe"
-		else
-   			echo "El directorio ${file} no existe"
-		fi
-	;;
-	4)
-		gestion
-	;;
-	*)
-		echo "Opción inválida"
-	;;	
+		1)
+			read -p "Indica el nombre del archivo (con la extensión) " viejo
+			read -p "Indica el nombre nuevo (también con la extensión) " nuevo
+			mv "$viejo" "$nuevo"	
+		;;
+		2)
+			read -p "Indica el nombre del carpeta (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" viejo
+			read -p "Indica el nuevo nombre (Puedes indicar la ruta de una carpeta si no esta en la ruta actual)" nuevo
+			mv "$viejo" "$nuevo"
+		;;
+		3)
+			read -p "Indica el nombre de la carpeta/archivo (Si es archivo tiene que ser con la extension.) " file
+
+			if [ -e "$file" ]; then
+   				echo "El directorio ${file} existe"
+			else
+   				echo "El directorio ${file} no existe"
+			fi
+		;;
+		4)
+			gestion
+		;;
+		*)
+			echo "Opción inválida"
+		;;	
 	esac
 }
 
@@ -398,26 +400,26 @@ gestion1(){
 	read -p "3. Volver al menú anterior" gest1
 
 	case "$gest1" in
-	1)
-		read -p "Nombra el archivo (con la extensión)" file
-		touch "$file"
-	;;
-	2)
-		read -p "Selecciona el archivo que quieres modificar: "  file
-		if [ -f "$file" ]; then
-   			echo "El archivo "$file" existe. Escribe lo que quieras y luego presiona CTRL + C."
-			echo "Si quieres cambiar de línea presiona ENTER."
-			cat > "$file"
-		else
-   			echo "El archivo "$file" no existe."
-		fi
-	;;
-	3)
-		gestion
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			read -p "Nombra el archivo (con la extensión)" file
+			touch "$file"
+		;;
+		2)
+			read -p "Selecciona el archivo que quieres modificar: "  file
+			if [ -f "$file" ]; then
+   				echo "El archivo "$file" existe. Escribe lo que quieras y luego presiona CTRL + C."
+				echo "Si quieres cambiar de línea presiona ENTER."
+				cat > "$file"
+			else
+   				echo "El archivo "$file" no existe."
+			fi
+		;;
+		3)
+			gestion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -435,37 +437,37 @@ gestion(){
 	read -p "9. Volver al menú principal " gest
 
 		case "$gest" in
-		1)
-			gestion1
-		;;
-		2)
-			gestion2
-		;;
-		3)
-			gestion3
-		;;
-		4)
-			gestion4
-		;;
-		5)
-			gestion5
-		;;
-		6)
-			gestion6
-		;;
-		7)
-			gestion7
-		;;
-		8)
-			gestion8
-		;;
-		9)
-			menuprincipal
-		;;
-		*)
-			echo "Opción invalida"
-	;;
-	esac
+			1)
+				gestion1
+			;;
+			2)
+				gestion2
+			;;
+			3)
+				gestion3
+			;;
+			4)
+				gestion4
+			;;
+			5)
+				gestion5
+			;;
+			6)
+				gestion6
+			;;
+			7)
+				gestion7
+			;;
+			8)
+				gestion8
+			;;
+			9)
+				menuprincipal
+			;;
+			*)
+				echo "Opción invalida"
+			;;
+		esac
 }
 
 visualizacion1(){
@@ -490,7 +492,7 @@ visualizacion1(){
 		;;
 		*)
 			echo "Opción invalida"
-	;;
+		;;
 	esac
 }
 visualizacion2(){
@@ -519,7 +521,7 @@ visualizacion2(){
 		;;
 		*)
 			echo "Opción inválida"
-	;;
+		;;
 	esac
 }
 visualizacion3(){
@@ -531,27 +533,27 @@ visualizacion3(){
 	read -p "4. Volver atrás" vis3
 
 	case "$vis3" in
-	1)
-		read -p "Escribe la ruta del archivo el cual quieras ordenas alfabéticamente " sort
-		sort "$sort"
-	;;
-	2)
-		read -p "Escribe la ruta del archivo el cual quieras eliminar duplicados" del
-		sort "$del" | uniq > resultado.txt
-		echo Se ha creado un nuevo archivo llamado "resultado.txt con el resultado esperado"
-	;;
-	3)
-		read -p "Escribe la ruta del archivo donde quieras contar duplicados" count
-		comando=$(sort "$count" | uniq -d | wc -l)
-		echo "Hay un total de $comando duplicados"
-		sort "$count" | uniq -d
-	;;
-	4)
-	visualizacion
-	;;
-	*)
-	echo "Opción inválida"
-	;;
+		1)
+			read -p "Escribe la ruta del archivo el cual quieras ordenas alfabéticamente " sort
+			sort "$sort"
+		;;
+		2)
+			read -p "Escribe la ruta del archivo el cual quieras eliminar duplicados" del
+			sort "$del" | uniq > resultado.txt
+			echo Se ha creado un nuevo archivo llamado "resultado.txt con el resultado esperado"
+		;;
+		3)
+			read -p "Escribe la ruta del archivo donde quieras contar duplicados" count
+			comando=$(sort "$count" | uniq -d | wc -l)
+			echo "Hay un total de $comando duplicados"
+			sort "$count" | uniq -d
+		;;
+		4)
+			visualizacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -563,25 +565,24 @@ visualizacion4(){
 	read -p "3. Volver atrás " vis4
 
 	case "$vis4" in
-
-	1)
-		read -p "Escribe la ruta donde extraeremos los datos" file
-		read -p "Escriba el número de la columna a extraer " column
-		echo "La columna que ha extraído: " 
-		cut -d ' ' -f "$column" "$file"
-	;;
-	2)
-		read -p "Escribe la ruta donde filtraremos líneas por texto" file
-		read -p "Escribe el texto a filtrar" text
-		grep "$text" "$file"
-	;;
-	3)
-		visualizacion
-	;;
-	*)
-		echo "Opción inválida"
-;;
-esac
+		1)
+			read -p "Escribe la ruta donde extraeremos los datos" file
+			read -p "Escriba el número de la columna a extraer " column
+			echo "La columna que ha extraído: " 
+			cut -d ' ' -f "$column" "$file"
+		;;
+		2)
+			read -p "Escribe la ruta donde filtraremos líneas por texto" file
+			read -p "Escribe el texto a filtrar" text
+			grep "$text" "$file"
+		;;
+		3)
+			visualizacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
+	esac
 }
 
 visualizacion5(){
@@ -593,37 +594,36 @@ visualizacion5(){
 	read -p "4. Volver atrás " vis4
 
 	case "$vis4" in
-
-	1)
-		read -p "Escribe la ruta del archivo que quieras convertir su texto de mayúsculas a minúsculas o viceversa: " file
-		read -p "¿De minúscula a mayúscula (1) o de mayúscula a minúscula (2)" opt
-		if [ "$opt" -eq 1 ]; then
-			tr '[:lower:]' '[:upper:]' < "$file" > nuevoArchivo.txt
-			echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
-		elif [ "$opt" -eq 2 ]; then
-			tr '[:upper:]' '[:lower:]' < "$file" > nuevoArchivo.txt
-			echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
-		fi
-	;;
-	2)
-		read -p "Escribe la ruta del archivo del cual quieras eliminar caracteres" file
-		read -p "Escribe el o los caracteres que quieras eliminar" del
-		tr -d "$del" < "$file" > nuevoArchivo.txt
-		echo "Se a debido crear un nuevo archivo en el mismo directorio con los cambios hechos"
-	;;
-	3)
-		read -p "Escribe la ruta del archivo " file
-		read -p "Escribe el patrón a sustituir" pattern
-		read -p "Escribe por cual texto se reemplazara" replace
-		sed -i "s/"$pattern"/"$replace"/g" "$file"
-		echo "Cambios realizados correctamente"
-	;;
-	4)
-		visualizacion
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			read -p "Escribe la ruta del archivo que quieras convertir su texto de mayúsculas a minúsculas o viceversa: " file
+			read -p "¿De minúscula a mayúscula (1) o de mayúscula a minúscula (2)" opt
+			if [ "$opt" -eq 1 ]; then
+				tr '[:lower:]' '[:upper:]' < "$file" > nuevoArchivo.txt
+				echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
+			elif [ "$opt" -eq 2 ]; then
+				tr '[:upper:]' '[:lower:]' < "$file" > nuevoArchivo.txt
+				echo "Se a tenido que crear un nuevo archivo en el mismo directorio con los cambios hechos"
+			fi
+		;;
+		2)
+			read -p "Escribe la ruta del archivo del cual quieras eliminar caracteres" file
+			read -p "Escribe el o los caracteres que quieras eliminar" del
+			tr -d "$del" < "$file" > nuevoArchivo.txt
+			echo "Se a debido crear un nuevo archivo en el mismo directorio con los cambios hechos"
+		;;
+		3)
+			read -p "Escribe la ruta del archivo " file
+			read -p "Escribe el patrón a sustituir" pattern
+			read -p "Escribe por cual texto se reemplazara" replace
+			sed -i "s/"$pattern"/"$replace"/g" "$file"
+			echo "Cambios realizados correctamente"
+		;;
+		4)
+			visualizacion
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -639,27 +639,27 @@ visualizacion(){
 
 	case "$vis" in
 
-	1)
-		visualizacion1
-	;;
-	2)
-		visualizacion2
-	;;
-	3)
-		visualizacion3
-	;;
-	4)
-		visualizacion4
-	;;
-	5)
-		visualizacion5
-	;;
-	6)
-		menuprincipal
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			visualizacion1
+		;;
+		2)
+			visualizacion2
+		;;
+		3)
+			visualizacion3
+		;;
+		4)
+			visualizacion4
+		;;
+		5)
+			visualizacion5
+		;;
+		6)
+			menuprincipal
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -682,7 +682,7 @@ usuarios1(){
 		;;
 		*)
 			echo "Opción inválida"
-	;;
+		;;
 	esac
 }
 
@@ -694,27 +694,26 @@ usuarios2(){
 	read -p "3. Volver atrás " usr2
 
 	case "$usr2" in
-	1)
-		read -p "Indique la ruta del archivo que quiera comprobar" file
-		ls -l "$file"
-	;;
-	2)
-		read -p "Indique la ruta del archivo que quiera cambiar los permisos" file
-		read -p "Indique los permisos que le quiere agregar a ese archivo (Por ejemplo: 777 para dar permisos de rwx a todos los usuarios, 755 para dar permisos de rwx al propietario y solo r x a los demas, etc...)" perm
-		
-		if [ -f "$file" ]; then
-			chmod -v "$perm" "$file"
-			echo "Los cambios han sido realizados y se a generado un mensaje de diagnóstico"
-		else
-			echo "El archivo no existe y se va a cancelar este proceso"
-		fi
-	;;
-	3)
-		usuarios
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			read -p "Indique la ruta del archivo que quiera comprobar" file
+			ls -l "$file"
+		;;
+		2)
+			read -p "Indique la ruta del archivo que quiera cambiar los permisos" file
+			read -p "Indique los permisos que le quiere agregar a ese archivo (Por ejemplo: 777 para dar permisos de rwx a todos los usuarios, 755 para dar permisos de rwx al propietario y solo r x a los demas, etc...)" perm
+			if [ -f "$file" ]; then
+				chmod -v "$perm" "$file"
+				echo "Los cambios han sido realizados y se a generado un mensaje de diagnóstico"
+			else
+				echo "El archivo no existe y se va a cancelar este proceso"
+			fi
+		;;
+		3)
+			usuarios
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -752,7 +751,7 @@ usuarios3(){
 		;;
 		*)
 			echo "Opción inválida"
-	;;
+		;;
 	esac
 }
 
@@ -765,25 +764,25 @@ usuarios4(){
 	read -p "4. Volver atrás (RECUERDA ESTAR EN SUDO PARA QUE ESTOS COMANDOS FUNCIONEN) " usr4
 
 	case "$usr4" in
-	1)
-		read -p "Escribe el nombre de usuario" usr
-		adduser "$usr"
-	;;
-	2)
-		read -p "Escribe el nombre del grupo" grp
-		groupadd "$grp"
-	;;
-	3)
-		read -p "Escribe el nombre del usuario" usr
-		read -p "Escribe el nombre del grupo" grp
-		usermod "$usr" "$grp"
-	;;
-	4)
-		usuarios
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			read -p "Escribe el nombre de usuario" usr
+			adduser "$usr"
+		;;
+		2)
+			read -p "Escribe el nombre del grupo" grp
+			groupadd "$grp"
+		;;
+		3)
+			read -p "Escribe el nombre del usuario" usr
+			read -p "Escribe el nombre del grupo" grp
+			usermod "$usr" "$grp"
+		;;
+		4)
+			usuarios
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac	
 }
 
@@ -814,9 +813,9 @@ usuarios(){
 			menuprincipal
 		;;
 		*)
-		clear
-		echo "Opción inválida"
-	;;
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -831,36 +830,35 @@ procesos4(){
 	read -p "5. Volver atrás" proc4
 
 	case "$proc4" in
-
-	1)
-		clear
-		read -p "Escribe el nombre del servicio" servicio
-		clear
-		systemctl status "$servicio"
-	;;
-	2)
-		clear
-		read -p "Escribe el nombre del servicio para iniciar" servicio
-		systemctl start "$servicio"
-	;;
-	3)
-		clear
-		read -p "Escribe el nombre del servicio para detener" servicio
-		systemctl stop "$servicio"
-	;;
-	4)
-		clear
-		read -p "Escribe el nombre del servicio  para reiniciar" servicio
-		systemctl restart "$servicio"
-	;;
-	5)
-		clear
-		procesos
-	;;
-	*)
-		clear
-		echo "Opción inválida"
-	;;
+		1)
+			clear
+			read -p "Escribe el nombre del servicio" servicio
+			clear
+			systemctl status "$servicio"
+		;;
+		2)
+			clear
+			read -p "Escribe el nombre del servicio para iniciar" servicio
+			systemctl start "$servicio"
+		;;
+		3)
+			clear
+			read -p "Escribe el nombre del servicio para detener" servicio
+			systemctl stop "$servicio"
+		;;
+		4)
+			clear
+			read -p "Escribe el nombre del servicio  para reiniciar" servicio
+			systemctl restart "$servicio"
+		;;
+		5)
+			clear
+			procesos
+		;;
+		*)
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 procesos3(){
@@ -873,26 +871,26 @@ procesos3(){
 	read -p "4. Volver atrás " proc3
 
 	case "$proc3" in
-	1)
-		clear
-		top
-	;;
-	2)
-		clear
-		free -h
-	;;
-	3)
-		clear
-		vmstat
-	;;
-	4)
-		clear
-		procesos
-	;;
-	*)
-		clear
-		echo "Opción inválida"
-	;;
+		1)
+			clear
+			top
+		;;
+		2)
+			clear
+			free -h
+		;;
+		3)
+			clear
+			vmstat
+		;;
+		4)
+			clear
+			procesos
+		;;
+		*)
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -905,26 +903,26 @@ procesos2(){
 	read -p "3. Volver atrás" proc2
 
 	case "$proc2" in
-	1)
-		clear
-		read -p "Escribe el ID del proceso que quieras finaliza" fin
-		kill "$fin"
-		echo "El proceso debería haberse finalizado"
-	;;
-	2)
-		clear
-		read -p "Escribe el nombre del proceso que quieras finalizar" fin
-		killall "$fin"
-		echo "El proceso debería haberse finalizado"
-	;;
-	3)
-		clear
-		procesos
-	;;
-	*)
-		clear
-		echo "Opción inválida"
-	;;
+		1)
+			clear
+			read -p "Escribe el ID del proceso que quieras finaliza" fin
+			kill "$fin"
+			echo "El proceso debería haberse finalizado"
+		;;
+		2)
+			clear
+			read -p "Escribe el nombre del proceso que quieras finalizar" fin
+			killall "$fin"
+			echo "El proceso debería haberse finalizado"
+		;;
+		3)
+			clear
+			procesos
+		;;
+		*)
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -938,28 +936,28 @@ procesos1(){
 	read -p "4. Volver atrás" proc1
 
 	case "$proc1" in
-	1)
-		clear
-		ps -u "$USER"
-	;;
-	2)
-		clear
-		ps aux
-	;;
-	3)
-		clear
-		read -p "Escribe el nombre del proceso" name
-		clear
-		ps aux | grep "$name"
-	;;
-	4)
-		clear
-		procesos
-	;;
-	*)
-		clear
-		echo "Opción inválida"
-	;;
+		1)
+			clear
+			ps -u "$USER"
+		;;
+		2)
+			clear
+			ps aux
+		;;
+		3)
+			clear
+			read -p "Escribe el nombre del proceso" name
+			clear
+			ps aux | grep "$name"
+		;;
+		4)
+			clear
+			procesos
+		;;
+		*)
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 procesos(){
@@ -973,30 +971,30 @@ procesos(){
 	read -p "5. Volver al menú principal" proc
 
 	case "$proc" in
-	1)
-		clear
-		procesos1
-	;;
-	2)
-		clear
-		procesos2
-	;;
-	3)
-		clear
-		procesos3
-	;;
-	4)
-		clear
-		procesos4
-	;;
-	5)
-		clear
-		menuprincipal
-	;;
-	*)
-		clear
-		echo "Opción inválida"
-	;;
+		1)
+			clear
+			procesos1
+		;;
+		2)
+			clear
+			procesos2
+		;;
+		3)
+			clear
+			procesos3
+		;;
+		4)
+			clear
+			procesos4
+		;;
+		5)
+			clear
+			menuprincipal
+		;;
+		*)
+			clear
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -1010,25 +1008,25 @@ red1(){
 	read -p "4. Volver atrás " red1
 
 	case "$red1" in
-	1)
-		clear
-		ip a
-	;;
-	2)
-		clear
-		ip link show up
-	;;
-	3)
-		clear
-		ip r
-	;;
-	4)
-		clear
-		red
-	;;
-	*)
-	echo "Opción inválida"
-	;;
+		1)
+			clear
+			ip a
+		;;
+		2)
+			clear
+			ip link show up
+		;;
+		3)
+			clear
+			ip r
+		;;
+		4)
+			clear
+			red
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -1041,26 +1039,26 @@ red2(){
 	read -p "4. Volver atrás" red2
 
 	case "$red2" in
-	1)
-		clear
-		read -p "Escribe el nombre del host (Ejemplo: google.com, 127.0.0.1)" host
-		ping "$host"
-	;;
-	2)
-		clear
-		read -p "Escribe el nombre del dominio" domain
-		nslookup "$domain"
-	;;
-	3)
-		clear
-		netstat -tulnp
-	;;
-	4)
-	red
-	;;
-	*)
-	echo "Opción inválida"
-	;;
+		1)
+			clear
+			read -p "Escribe el nombre del host (Ejemplo: google.com, 127.0.0.1)" host
+			ping "$host"
+		;;
+		2)
+			clear
+			read -p "Escribe el nombre del dominio" domain
+			nslookup "$domain"
+		;;
+		3)
+			clear
+			netstat -tulnp
+		;;
+		4)
+			red
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -1073,20 +1071,21 @@ red(){
 	read -p "4.  Volver al menú principal" red
 
 	case "$red" in
-	1)
-		red1
-	;;
-	2)
-		red2
-	;;
-	3)
-		red3
-	;;
-	4)
-	menuprincipal
-	*)
-	echo "Opción inválida"
-	;;
+		1)
+			red1
+		;;
+		2)
+			red2
+		;;
+		3)
+			red3
+		;;
+		4)
+			menuprincipal
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
@@ -1102,30 +1101,30 @@ menuprincipal(){
 	read -p "7. Salir" op
 
 	case "$op" in
-	1)
-		navegacion
-	;;
-	2)
-		gestion
-	;;
-	3)
-		visualizacion
-	;;
-	4)
-		usuarios
-	;;
-	5)
-		procesos
-	;;
-	6)
-		red
-	;;
-	7)
-		echo "Saliendo del menú..."
-	;;
-	*)
-		echo "Opción inválida"
-	;;
+		1)
+			navegacion
+		;;
+		2)
+			gestion
+		;;
+		3)
+			visualizacion
+		;;
+		4)
+			usuarios
+		;;
+		5)
+			procesos
+		;;
+		6)
+			red
+		;;
+		7)
+			echo "Saliendo del menú..."
+		;;
+		*)
+			echo "Opción inválida"
+		;;
 	esac
 }
 
