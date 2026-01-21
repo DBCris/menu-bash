@@ -1127,8 +1127,9 @@ red3(){
 			wget "$file"
 		;;
 		2)
-			read -p "Escribe el servidor remoto" serv
-			ping "$serv"
+			read -p "Escribe la IP del servidor remoto" serv
+			read -p "Escribe el puerto del servidor remoto" port
+			telnet "$serv" "$port"
 		;;
 		3)
 			red
