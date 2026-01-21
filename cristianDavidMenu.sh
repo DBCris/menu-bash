@@ -1111,6 +1111,34 @@ red2(){
 	esac
 }
 
+red3(){
+	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"
+	echo "Has seleccionado Transferencia y comunicación. Selecciona una opción"
+	echo "1. Descargar archivos desde internet"
+	echo "2. Probar conexión con un servidor remoto"
+	read -p "3. Volver atrás" red3
+
+	case "$red3" in
+		1)
+			read -p "Escribe la URL del archivo a descargar" file
+			wget "$file"
+		;;
+		2)
+			read -p "Escribe el servidor remoto" serv
+			ping "$serv"
+		;;
+		3)
+			red
+		;;
+		*)
+			echo "Opción inválida"
+		;;
+	esac
+}
+
 red(){
 	clear
 	echo "================================================================"
