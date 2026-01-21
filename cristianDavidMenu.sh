@@ -1,7 +1,9 @@
 #!/bin/bash
 navegacion11(){
-
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has elegido mostrar información del directorio actual. Selecciona una de estas opciónes: "
 	echo "1. Ver ruta actual"
 	echo "2. Listar contenido básico"
@@ -41,7 +43,10 @@ navegacion11(){
 }
 
 navegacion12(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has elegido cambiar de directorio, selecciona una de las opciones: "
 	echo "1. Ir a una ruta concreta"
 	echo "2. Comprobar si una ruta existe"
@@ -71,7 +76,10 @@ navegacion12(){
 }
 
 navegacion13(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Navegación guiada en árbol.  Selecciona una de las opciónes: "
 	echo "1. Mostrar estructura de directorios en forma de árbol"
 	echo "2. Mostrar solo carpetas"
@@ -99,7 +107,10 @@ navegacion13(){
 }
 
 navegacion14(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado buscar archivos y directorios. Selecciona una opción:"
 	echo "1. Búsqueda exacta por nombre"
 	echo "2. Búsqueda por coincidencias parciales"
@@ -134,7 +145,10 @@ navegacion14(){
 }
 
 navegacion15(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Calcular tamaños de carpetas. Selecciona una opción"
 	echo "1. Consultar tamaño de una ruta específica"
 	echo "2. Ordenar carpetas por tamaño"
@@ -159,7 +173,10 @@ navegacion15(){
 }
 
 navegacion16(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Crear / renombrar / eliminar elementos. Selecciona una opción"
 	echo "1. Crear archivo vacío"
 	echo "2. Renombrar archivo o carpeta"
@@ -203,7 +220,10 @@ navegacion16(){
 }
 
 navegacion17(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Historial de rutas visitadas. Selecciona una opción"
 	echo "1. Mostrar historial"
 	echo "2. Borrar historial"
@@ -236,7 +256,10 @@ navegacion17(){
 }
 
 navegacion18(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Listar contenido con filtros avanzados. Selecciona una opción"
 	echo "1. Listar por tamaño"
 	echo "2. Listar por fecha"
@@ -270,7 +293,10 @@ navegacion18(){
 }
 
 navegacion(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado navegación por el sistema de archivos. Selecciona una opción: "
 	echo "1. Mostrar información del directorio actual"
 	echo "2. Cambiar de directorio"
@@ -318,7 +344,10 @@ navegacion(){
 }
 
 gestion3(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Copiar archivos o directorios completos. Selecciona una opción:"
 	echo "1. Copiar un archivo con otro nombre"
 	echo "2. Copiar archivos a otra carpeta"
@@ -356,7 +385,10 @@ gestion3(){
 	esac
 }
 gestion2(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Renombrar archivos o carpetas. Selecciona una opción:"
 	echo "1. Renombrar un archivo"
 	echo "2. Renombrar una carpeta"
@@ -393,7 +425,10 @@ gestion2(){
 }
 
 gestion1(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido crear archivos. Selecciona una opción:"
 	echo "1. Crear un archivo vacío"
 	echo "2. Añadir texto a un archivo existente"
@@ -424,7 +459,10 @@ gestion1(){
 }
 
 gestion(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Gestión y manipulación de archivos. Selecciona una opción:"
 	echo "1. Crear archivos"
 	echo "2. Renombrar archivos o carpetas"
@@ -471,7 +509,10 @@ gestion(){
 }
 
 visualizacion1(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Visualizar contenido de un archivo. Selecciona una opción:"
 	echo "1. Mostrar contenido completo"
 	echo "2. Mostrar primeras n líneas"
@@ -496,7 +537,10 @@ visualizacion1(){
 	esac
 }
 visualizacion2(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Estadísticas y conteo. Selecciona una opción:"
 	echo "1. Contar líneas"
 	echo "2. Contar palabras"
@@ -525,7 +569,10 @@ visualizacion2(){
 	esac
 }
 visualizacion3(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido ordenar información. Selecciona una opción:"
 	echo "1. Ordenar alfabéticamente"
 	echo "2. Eliminar duplicados"
@@ -558,7 +605,10 @@ visualizacion3(){
 }
 
 visualizacion4(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Extraer o filtrar datos. Selecciona una opción:"
 	echo "1. Extraer columnas específicas"
 	echo "2. Filtrar líneas por texto"
@@ -586,7 +636,10 @@ visualizacion4(){
 }
 
 visualizacion5(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Ha escogido Transformar texto. Selecciona una opción:"
 	echo "1. Convertir mayúsculas/minúsculas"
 	echo "2. Eliminar caracteres"
@@ -628,7 +681,10 @@ visualizacion5(){
 }
 
 visualizacion(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has escogido Visualización y manipulación de archivos. Selecciona una opción:"
 	echo "1. Visualizar contenido de un archivo."
 	echo "2. Estadísticas y conteo."
@@ -664,7 +720,10 @@ visualizacion(){
 }
 
 usuarios1(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Información del usuario. Selecciona una de estas opciónes:"
 	echo "1. Ver usuario actual"
 	echo "2. Ver grupos asociados"
@@ -687,7 +746,10 @@ usuarios1(){
 }
 
 usuarios2(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Permisos de archivos. Selecciona una de estas opciónes:"
 	echo "1. Mostrar permisos actuales"
 	echo "2. Cambiar permisos"
@@ -718,7 +780,10 @@ usuarios2(){
 }
 
 usuarios3(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Propietarios y grupos. Selecciona una de estas opciónes:"
 	echo "1. Ver propietario actual"
 	echo "2. Cambiar propietario"
@@ -756,7 +821,10 @@ usuarios3(){
 }
 
 usuarios4(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"	
 	echo "Has seleccionado Gestión básica de cuentas. Selecciona una opción:"
 	echo "1. Crear usuario"
 	echo "2. Crear grupo"
@@ -789,6 +857,8 @@ usuarios4(){
 usuarios(){
 	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"
 	echo "Has seleccionado Usuarios, grupos y permisos. Selecciona una de estas opciónes:"
 	echo "1. Información del usuario"
 	echo "2. Permisos de archivos"
@@ -813,7 +883,6 @@ usuarios(){
 			menuprincipal
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
@@ -821,6 +890,8 @@ usuarios(){
 
 procesos4(){
 	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Servicios del sistema. Selecciona una opción"
 	echo "1. Ver estado de un servicio"
@@ -831,38 +902,33 @@ procesos4(){
 
 	case "$proc4" in
 		1)
-			clear
 			read -p "Escribe el nombre del servicio" servicio
-			clear
 			systemctl status "$servicio"
 		;;
 		2)
-			clear
 			read -p "Escribe el nombre del servicio para iniciar" servicio
 			systemctl start "$servicio"
 		;;
 		3)
-			clear
 			read -p "Escribe el nombre del servicio para detener" servicio
 			systemctl stop "$servicio"
 		;;
 		4)
-			clear
 			read -p "Escribe el nombre del servicio  para reiniciar" servicio
 			systemctl restart "$servicio"
 		;;
 		5)
-			clear
 			procesos
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
 }
 procesos3(){
 	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Monitorización del sistema. Selecciona una opción"
 	echo "1. Ver uso de CPU"
@@ -872,23 +938,18 @@ procesos3(){
 
 	case "$proc3" in
 		1)
-			clear
 			top
 		;;
 		2)
-			clear
 			free -h
 		;;
 		3)
-			clear
 			vmstat
 		;;
 		4)
-			clear
 			procesos
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
@@ -897,6 +958,8 @@ procesos3(){
 procesos2(){
 	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"
 	echo "Has seleccionado Gestionar procesos. Selecciona una opción"
 	echo "1. Finalizar procesos por ID"
 	echo "2. Finalizar procesos por nombre"
@@ -904,23 +967,19 @@ procesos2(){
 
 	case "$proc2" in
 		1)
-			clear
 			read -p "Escribe el ID del proceso que quieras finaliza" fin
 			kill "$fin"
 			echo "El proceso debería haberse finalizado"
 		;;
 		2)
-			clear
 			read -p "Escribe el nombre del proceso que quieras finalizar" fin
 			killall "$fin"
 			echo "El proceso debería haberse finalizado"
 		;;
 		3)
-			clear
 			procesos
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
@@ -928,6 +987,8 @@ procesos2(){
 
 procesos1(){
 	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Consultar procesos. Selecciona una opción"
 	echo "1. Ver procesos propios"
@@ -937,31 +998,27 @@ procesos1(){
 
 	case "$proc1" in
 		1)
-			clear
 			ps -u "$USER"
 		;;
 		2)
-			clear
 			ps aux
 		;;
 		3)
-			clear
 			read -p "Escribe el nombre del proceso" name
-			clear
 			ps aux | grep "$name"
 		;;
 		4)
-			clear
 			procesos
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
 }
 procesos(){
 	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Procesos y control del sistema. Selecciona una opción"
 	echo "1. Consultar procesos"
@@ -972,27 +1029,21 @@ procesos(){
 
 	case "$proc" in
 		1)
-			clear
 			procesos1
 		;;
 		2)
-			clear
 			procesos2
 		;;
 		3)
-			clear
 			procesos3
 		;;
 		4)
-			clear
 			procesos4
 		;;
 		5)
-			clear
 			menuprincipal
 		;;
 		*)
-			clear
 			echo "Opción inválida"
 		;;
 	esac
@@ -1000,6 +1051,8 @@ procesos(){
 
 red1(){
 	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Información de la red. Selecciona una opción"
 	echo "1. Ver dirección IP"
@@ -1009,19 +1062,15 @@ red1(){
 
 	case "$red1" in
 		1)
-			clear
 			ip a
 		;;
 		2)
-			clear
 			ip link show up
 		;;
 		3)
-			clear
 			ip r
 		;;
 		4)
-			clear
 			red
 		;;
 		*)
@@ -1031,6 +1080,9 @@ red1(){
 }
 
 red2(){
+	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Diagnóstico. Selecciona una opción"
 	echo "1. Probar conectividad con un host"
@@ -1040,17 +1092,14 @@ red2(){
 
 	case "$red2" in
 		1)
-			clear
 			read -p "Escribe el nombre del host (Ejemplo: google.com, 127.0.0.1)" host
 			ping "$host"
 		;;
 		2)
-			clear
 			read -p "Escribe el nombre del dominio" domain
 			nslookup "$domain"
 		;;
 		3)
-			clear
 			netstat -tulnp
 		;;
 		4)
@@ -1063,6 +1112,9 @@ red2(){
 }
 
 red(){
+	clear
+	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
 	echo "================================================================"
 	echo "Has seleccionado Red, conectividad y diagnóstico. Selecciona una opción"
 	echo "1. Información de la red"
@@ -1090,7 +1142,11 @@ red(){
 }
 
 menuprincipal(){
+	clear
 	echo "================================================================"
+	echo "BASH SCRIPT POR: CRISTIAN DAVID"
+	echo "================================================================"
+	echo "Estás en el menú principal del script."
 	echo "Escoge una opción"
 	echo "1. Navegación por el sistema de archivos"
 	echo "2. Gestión y manipulación de archivos"
