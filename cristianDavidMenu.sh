@@ -125,7 +125,8 @@ navegacion14(){
 			find . -name "$name"
         ;;
         2)
-            tree -d
+            read -p "Has seleccionado búsqueda exacta por nombre, di el nombre del archivo/directorio: " name
+			find . -name "*$name*"
         ;;
         3)
             read -p "Introduce la profundiad deseada " depth
@@ -238,7 +239,8 @@ navegacion17(){
 		2)
 			read -p "¿ESTÁS SEGURO? (Y/N)" confirmation
 			if [ "$confirmation" == "Y" ]; then 
-				> ~/.bash_history
+				history -c
+				history -w
 				echo "Historial borrado correctamente"
 			elif [ "$confirmation" == "N" ]; then
 				echo "Cancelando proceso... "
